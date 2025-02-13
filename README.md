@@ -2,6 +2,16 @@
 
 CineHook is a modern movie search and watchlist application built with **React** and **TypeScript**. It allows users to search for movies, view details, and maintain a watchlist with ratings. The app fetches movie data from the **OMDb API** and provides a smooth, interactive experience with persistent local storage.
 
+## 🖼️ Screenshots
+
+### 📌 Home Screen
+
+![Home Screen](screenshots/project-cinehook-0.png)
+
+### 📌 Rating a Movie
+
+![Rating a Movie](screenshots/project-cinehook-2.png)
+
 ## 🚀 Features
 
 - 🔍 **Search for Movies** – Fetch movie details from the OMDb API.
@@ -18,10 +28,9 @@ CineHook is a modern movie search and watchlist application built with **React**
 - 🗄 **Local Storage** – Persistent watchlist data
 - 🎬 **OMDb API** – Fetches real-time movie details
 
-## 🔗 Project Links
+## 🔗 Demo
 
-- 🔗 [Live Demo](#) – _Coming soon! Stay tuned._
-- 🌍 **Live Demo**: [Demo Link](#) _Coming soon! Stay tuned._
+- 🌍 [Live Demo](#) – _Coming soon! Stay tuned._
 
 ## 🧪 Testing
 
@@ -33,7 +42,7 @@ CineHook is a modern movie search and watchlist application built with **React**
 git clone https://github.com/emad-abaei/cineHook.git
 
 2️⃣ Navigate to the project directory:
-cd useQuiz
+cd cineHook
 
 3️⃣ Install dependencies:
 npm install
