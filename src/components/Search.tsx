@@ -24,15 +24,21 @@ function Search({ query, onSetQuery }: SearchProps) {
   });
 
   return (
-    <input
-      className="search"
-      type="text"
-      placeholder="Search movies..."
-      value={query}
-      onChange={handleChange}
-      ref={searchInputEl}
-      aria-label="Search for movies"
-    />
+    <>
+      <label htmlFor="search" className="visually-hidden">
+        Search Movies
+      </label>
+      <input
+        id="search"
+        className="search"
+        type="text"
+        placeholder="Search movies..."
+        value={query}
+        onChange={handleChange}
+        ref={searchInputEl}
+        aria-label="Search for movies"
+      />
+    </>
   );
 }
 
