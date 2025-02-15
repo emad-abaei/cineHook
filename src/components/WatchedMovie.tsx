@@ -32,7 +32,7 @@ function WatchedMovie({ movie, onDeleteWatchedMovie }: WatchedMovieProps) {
           <span>{movie.runtime ? movie.runtime + 'min' : '-'}</span>
         </p>
       </div>
-      <button className="btn-delete" onClick={handleDelete}>
+      <button type="button" className="btn-delete" onClick={handleDelete}>
         <MdDeleteForever size={24} />
       </button>
     </li>

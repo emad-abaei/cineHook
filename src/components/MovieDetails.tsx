@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import StarRating from "./StarRating";
-import Loader from "./Loader";
-import { useKey } from "../hooks/useKey";
-import { ApiResponseMoiveType, WatchedMovieType } from "../types";
-import { API_KEY, DEFAULT_APP_TITLE } from "../utils/constants";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { FaStar } from "react-icons/fa";
+import { useEffect, useState } from 'react';
+import StarRating from './StarRating';
+import Loader from './Loader';
+import { useKey } from '../hooks/useKey';
+import { ApiResponseMoiveType, WatchedMovieType } from '../types';
+import { API_KEY, DEFAULT_APP_TITLE } from '../utils/constants';
+import { IoMdArrowRoundBack } from 'react-icons/io';
+import { FaStar } from 'react-icons/fa';
 
 interface MovieDetailsProps {
   selectedId: string;
@@ -18,7 +18,7 @@ function MovieDetails({
   selectedId,
   onCloseMovie,
   onAddWatchedMovie,
-  watched
+  watched,
 }: MovieDetailsProps) {
   const [movie, setMovie] = useState<Partial<ApiResponseMoiveType>>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -32,17 +32,17 @@ function MovieDetails({
   )?.userRating;
 
   const {
-    Title: title = "-",
-    Poster: poster = "-",
-    Runtime: runtime = "-",
-    Year: year = "-",
+    Title: title = '-',
+    Poster: poster = '-',
+    Runtime: runtime = '-',
+    Year: year = '-',
     imdbRating = 0,
-    Plot: plot = "-",
-    Released: released = "-",
-    Actors: actors = "-",
-    Director: director = "-",
-    Genre: genre = "-",
-    Type: type = "-"
+    Plot: plot = '-',
+    Released: released = '-',
+    Actors: actors = '-',
+    Director: director = '-',
+    Genre: genre = '-',
+    Type: type = '-',
   } = movie;
 
   useEffect(() => {
@@ -54,17 +54,17 @@ function MovieDetails({
           `http://www.omdbapi.com/?apikey=${API_KEY}&i=${selectedId}`
         );
 
-        if (!res.ok) throw new Error("Could not find the movie!");
+        if (!res.ok) throw new Error('Could not find the movie!');
 
         const data: ApiResponseMoiveType = await res.json();
 
-        if (data.Response === "False")
-          throw new Error(data.Error || "Movie not found!");
+        if (data.Response === 'False')
+          throw new Error(data.Error || 'Movie not found!');
 
         setMovie(data);
       } catch (err) {
         const errorMessage =
-          err instanceof Error ? err.message : "An unknown error occured.";
+          err instanceof Error ? err.message : 'An unknown error occured.';
         console.log(errorMessage);
       } finally {
         setIsLoading(false);
@@ -82,7 +82,7 @@ function MovieDetails({
     return () => (document.title = DEFAULT_APP_TITLE);
   }, [title]);
 
-  useKey("Escape", onCloseMovie);
+  useKey('Escape', onCloseMovie);
 
   function handleClick(): void {
     onCloseMovie();
@@ -99,58 +99,60 @@ function MovieDetails({
       Year: year,
       Poster: poster,
       Type: type,
-      runtime: Number(runtime.split(" ").at(0) || 0),
+      runtime: Number(runtime.split(' ').at(0) || 0),
       imdbRating: Number(imdbRating) || 0,
-      userRating
+      userRating,
     };
 
     onAddWatchedMovie(newWatchedMovid);
   }
 
   return (
-    <div className='details'>
+    <div className="details">
       {isLoading ? (
         <Loader />
       ) : (
         <>
           <header>
-            <button className='btn-back' onClick={handleClick}>
+            <button type="button" className="btn-back" onClick={handleClick}>
               <IoMdArrowRoundBack />
             </button>
             <img src={poster} alt={`Poster of ${title} movie`} />
-            <div className='details-overview'>
+            <div className="details-overview">
               <h2>{title}</h2>
               <p>
                 {released} &bull; {runtime}
               </p>
               <p>{genre}</p>
               <p>
-                <FaStar size={18} className='icon-star' /> {imdbRating} IMDB
+                <FaStar size={18} className="icon-star" /> {imdbRating} IMDB
                 rating
               </p>
             </div>
           </header>
           <section>
-            <div className='rating'>
+            <div className="rating">
               {isWatched ? (
                 <>
                   <p>
                     You have rated this movie {watchedMovieUserRating}
-                    <FaStar size={15} className='icon-star' />
+                    <FaStar size={15} className="icon-star" />
                   </p>
                 </>
               ) : (
                 <>
-                  <StarRating
-                    maxRating={10}
-                    onRate={handleRate}
-                    size={22}
-                  />
+                  <StarRating maxRating={10} onRate={handleRate} size={22} />
                   {userRating > 0 ? (
-                    <button className='btn-add' onClick={handleAddMovie}>
+                    <button
+                      type="button"
+                      className="btn-add"
+                      onClick={handleAddMovie}
+                    >
                       Add Movie
                     </button>
-                  ) : <p>Rate the movie</p>}
+                  ) : (
+                    <p>Rate the movie</p>
+                  )}
                 </>
               )}
             </div>
