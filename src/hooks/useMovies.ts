@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { MovieType, ApiResponseType } from "../types";
-import { API_KEY } from "../utils/constants";
+import { useEffect, useState } from 'react';
+import { MovieType, ApiResponseType } from '../types';
+import { API_KEY } from '../utils/constants';
 
 export function useMovies(query: string, callback?: () => void) {
   const [movies, setMovies] = useState<MovieType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState<string>('');
 
   useEffect(() => {
     callback?.(); // Close movie detail when query is changed
@@ -15,28 +15,28 @@ export function useMovies(query: string, callback?: () => void) {
     const fetchMovies = async () => {
       try {
         setIsLoading(true);
-        setError("");
+        setError('');
 
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`,
+          `https://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`,
           { signal: controller.signal }
         );
 
         if (!res.ok)
-          throw new Error("Something went weong. Could not fetch movies");
+          throw new Error('Something went weong. Could not fetch movies');
 
         const data: ApiResponseType = await res.json();
 
-        if (data.Response === "False")
-          throw new Error(data.Error || "Movie not found.");
+        if (data.Response === 'False')
+          throw new Error(data.Error || 'Movie not found.');
 
         setMovies(data.Search || []);
       } catch (err) {
-        if (err instanceof DOMException && err.name == "AbortError") {
-          console.log("Fetch aborted");
+        if (err instanceof DOMException && err.name == 'AbortError') {
+          console.log('Fetch aborted');
         } else {
           const errorMessage =
-            err instanceof Error ? err.message : "An unknown error occurred";
+            err instanceof Error ? err.message : 'An unknown error occurred';
 
           console.error(errorMessage);
 
@@ -49,7 +49,7 @@ export function useMovies(query: string, callback?: () => void) {
 
     if (query.length < 3) {
       setMovies([]);
-      setError("");
+      setError('');
       return;
     }
 
