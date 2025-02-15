@@ -17,6 +17,9 @@ function Switch({ viewList, onChangeViewList }: SwitchProps) {
         <span
           className={viewList === 'searchedMovies' ? 'active' : ''}
           onClick={() => handleClick('searchedMovies')}
+          aria-label={`Switch to ${
+            viewList === 'searchedMovies' ? 'watched movies' : 'searched movies'
+          }`}
         >
           Searched Movies
         </span>
@@ -24,6 +27,9 @@ function Switch({ viewList, onChangeViewList }: SwitchProps) {
         <span
           className={viewList === 'watchedMovies' ? 'active' : ''}
           onClick={() => handleClick('watchedMovies')}
+          aria-label={`Switch to ${
+            viewList === 'searchedMovies' ? 'watched movies' : 'searched movies'
+          }`}
         >
           Watched Movies
         </span>

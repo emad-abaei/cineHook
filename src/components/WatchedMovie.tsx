@@ -32,7 +32,12 @@ function WatchedMovie({ movie, onDeleteWatchedMovie }: WatchedMovieProps) {
           <span>{movie.runtime ? movie.runtime + 'min' : '-'}</span>
         </p>
       </div>
-      <button type="button" className="btn-delete" onClick={handleDelete}>
+      <button
+        type="button"
+        className="btn-delete"
+        onClick={handleDelete}
+        aria-label={`Remove ${movie.Title} from watchlist`}
+      >
         <MdDeleteForever size={24} />
       </button>
     </li>

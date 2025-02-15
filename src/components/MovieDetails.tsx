@@ -114,7 +114,12 @@ function MovieDetails({
       ) : (
         <>
           <header>
-            <button type="button" className="btn-back" onClick={handleClick}>
+            <button
+              type="button"
+              className="btn-back"
+              onClick={handleClick}
+              aria-label="Close movie details"
+            >
               <IoMdArrowRoundBack />
             </button>
             <img src={poster} alt={`Poster of ${title} movie`} />
