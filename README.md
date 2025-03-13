@@ -50,7 +50,7 @@ npm install
 4️⃣ Run the development server:
 npm run dev
 
-## 🙌 Credits & Inspiration
+## 🙌 Credits
 
 This project was originally inspired by a course from **Jonas Schmedtmann**. While the core idea comes from the course, I have made several enhancements, including:
 
