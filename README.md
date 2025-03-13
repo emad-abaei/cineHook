@@ -28,9 +28,9 @@ CineHook is a modern movie search and watchlist application built with **React**
 - 🗄 **Local Storage** – Persistent watchlist data
 - 🎬 **OMDb API** – Fetches real-time movie details
 
-## 🔗 Demo
+## 🔗 Live Demo
 
-- 🌍 [Live Demo](#) – _Coming soon! Stay tuned._
+- 🌍 [Try CineHook Now!](https://cinehook-emadabaei.netlify.app)
 
 ## 🧪 Testing
 
@@ -49,6 +49,16 @@ npm install
 
 4️⃣ Run the development server:
 npm run dev
+
+## 🙌 Credits & Inspiration
+
+This project was originally inspired by a course from **Jonas Schmedtmann**. While the core idea comes from the course, I have made several enhancements, including:
+
+- **Migrating from JavaScript to TypeScript** for better type safety and maintainability.
+- **Implementing a mobile-friendly design** to improve responsiveness on smaller screens.
+- **Refactoring and optimizing the codebase** for cleaner, more efficient development.
+
+These improvements make **CineHook** a more robust and scalable movie search and watchlist application.
 
 ## 📩 Contributing
 
